@@ -1,16 +1,16 @@
-let productExceptSelf = (nums) => {
+let productExceptSelf = (arr) => {
     let output = []
     let leftMult = 1
     let rightMult = 1
 
-    for (let j = 0; j < nums.length; j++) {
+    for (let j = 0; j < arr.length; j++) {
         output[j] = leftMult
-        leftMult *= nums[j]
+        leftMult *= arr[j]
     }
 
-    for (let i = nums.length - 1; i >= 0; i--) {
+    for (let i = arr.length - 1; i >= 0; i--) {
         output[i] *= rightMult
-        rightMult *= nums[i]
+        rightMult *= arr[i]
     }
 
     return output;

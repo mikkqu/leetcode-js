@@ -1,24 +1,26 @@
 
-let permute = (nums) => {
+let permute = (arr) => {
     let list = []
 
-    let backtrack = (currList = []) => {
-        if (currList.length == nums.length) {
-            return list.push(Array.from(currList))
+    let backtrack = (currList) => {
+        if (currList.length == arr.length) {
+            return list.push(currList.slice())
         }
 
-        for (let i = 0; i < nums.length; i++) {
-            if (currList.includes(nums[i])) { continue }
+        for (let i = 0; i < arr.length; i++) {
+            if (currList.includes(arr[i])) { continue }
 
-            currList.push(nums[i])
+            currList.push(arr[i])
             backtrack(currList);
             currList.pop()
         }
     }
 
-    backtrack();
+    backtrack([]);
 
     return list;
 };
 
-console.log(permute([1, 3, 2]))
+let res = permute([1, 2, 3, 4])
+console.log(res)
+console.log(res.length)

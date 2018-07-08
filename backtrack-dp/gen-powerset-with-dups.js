@@ -3,13 +3,13 @@ let subsetsWithDup = (nums) => {
 
     let res = []
 
-    let _gen = (len, start = 0, arr = []) => {
+    let _gen = (len, start, arr) => {
         if (arr.length == len) {
             res.push(arr.slice())
             return
         }
 
-        for(let i = start; i < nums.length; i++) {
+        for (let i = start; i < nums.length; i++) {
             if (i !== start && nums[i - 1] === nums[i]) {
                 continue
             }
@@ -21,10 +21,10 @@ let subsetsWithDup = (nums) => {
     }
 
     for (let len = 0; len <= nums.length; len++) {
-        _gen(len)
+        _gen(len, 0, [])
     }
 
     return res
-};
+}
 
-console.log(subsetsWithDup([1, 2, 3]))
+console.log(subsetsWithDup([1, 2, 2, 3]))

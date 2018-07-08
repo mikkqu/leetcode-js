@@ -1,10 +1,13 @@
-let swap = (A, i, j) => {
-    let temp = A[i]
-    A[i] = A[j]
-    A[j] = temp
-}
 
 let firstMissingPositive = (arr) => {
+    if (!arr || !arr.length) { return 0 }
+
+    let swap = (A, i, j) => {
+        let temp = A[i]
+        A[i] = A[j]
+        A[j] = temp
+    }
+
     for (let i = 0; i < arr.length; i++) {
         while (
             arr[i] > 0 &&
